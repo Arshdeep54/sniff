@@ -26,7 +26,14 @@ int main(int argc, char *argv[]) {
         int match = 0;
         if (strcmp(algo, "boyer-moore") == 0) {
             match = boyer_moore_search(line, search_string);
-        } else {
+        }
+        else if (strcmp(algo, "kmp") == 0) {
+            match = kmp_search(line, search_string);
+        }
+        else if (strcmp(algo, "rabin-karp") == 0) {
+            match = rabin_karp_search(line, search_string);
+        }
+         else {
             fprintf(stderr, "Unknown algorithm: %s\n", algo);
             exit(EXIT_FAILURE);
         }
